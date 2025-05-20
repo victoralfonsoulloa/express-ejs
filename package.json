@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js --delay 1.2"
+    "dev": "nodemon server.js"
   },
   "author": "NAME HERE",
   "license": "Apache 2.0",

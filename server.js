@@ -7,21 +7,24 @@ const port = 3000;
 //create instance of Express app
 const app = express();
 
+// ejs is templating engine
+app.set('view engine','ejs');
+
+//this will allow us to serve up static files, CSS, images & JS
+app.use(express.static('public'));
+
+
 //index/home URL
 app.get('/',(req,res)=>{
-    res.send(`
-	    <h1>Home Page</h1>
-      <p>Welcome to Express!</p>
-  `);
+  let title = "Home Page";
+  res.render("pages/index", {"title": title});
 
 });
 
-//about page/url
+//index/about URL
 app.get('/about',(req,res)=>{
-    res.send(`
-	    <h1>About Page</h1>
-      <p>Stuff about us goes here!</p>
-  `);
+  let title = "About Page";
+  res.render("pages/about", {"title": title});
 
 });
 

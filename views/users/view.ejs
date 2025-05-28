@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+    <h1><%=title%></h1>
+    <div class="card">
+  <div class="card-body" style="position:relative">
+    <h4 class="card-title"><%=user.first_name%> <%=user.last_name%></h4>
+    <p class="card-text"><b>Email:</b><%=user.email%></p>
+    <%
+               if(user.id % 2 == 0) {
+              %>
+                 <div style="position:absolute;right: 10px;top: 10px;"><img src="https://randomuser.me/api/portraits/men/<%= user.id %>.jpg"></div>
+              <%} else {%>
+                 <div style="position:absolute;right: 10px;top: 10px;"><img src="https://randomuser.me/api/portraits/women/<%= user.id %>.jpg"></div>
+              <%}%>
+
+<p class="card-text w-75"><b>Bio:</b> I'm baby blog disrupt hoodie gochujang, blue bottle bruh vegan williamsburg pug. Biodiesel hoodie typewriter, bitters tacos meggings master cleanse yr post-ironic try-hard 90's? Pop-up copper mug grailed bushwick selvage, yes plz semiotics!</p><p> Hella truffaut tote bag, biodiesel glossier organic live-edge man bun mixtape. Mukbang bushwick copper mug 3 wolf moon.</p><p> Gentrify tacos vinyl occupy beard, forage scenester tilde synth. Echo park vape kale chips listicle!</p>
+    <a href="/users" class="card-link">Back</a>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

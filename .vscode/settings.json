@@ -2,5 +2,5 @@
   // Auto-save behavior for editor files:
   // Use "onWindowChange" to save when switching files/tabs/windows (recommended for Codespaces)
   // Use "off" to turn off auto-saving completely
-  "files.autoSave": "onWindowChange"
+  "files.autoSave": "off"
 }

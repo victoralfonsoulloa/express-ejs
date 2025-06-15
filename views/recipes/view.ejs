@@ -1,0 +1,16 @@
+<%- include('../partials/header', { title: recipe.name }) %>
+<div class="card">
+  <div class="card-body" style="position:relative">
+    <h4 class="card-title"><%= recipe.name %></h4>
+    <p class="card-text w-75"><strong>Author:</strong> <%= recipe.author %></p>
+    <p class="card-text w-75"><strong>Category:</strong> <%= recipe.category?.name || 'N/A' %></p>
+    <p class="card-text w-75"><strong>Description:</strong> <%= recipe.description %></p>
+    <p class="card-text w-75"><strong>Ingredients:</strong> <%= recipe.ingredients %></p>
+    <p class="card-text w-75"><strong>Instructions:</strong> <%= recipe.instructions %></p>
+    <p class="card-text w-75"><strong>Rating:</strong> <%= recipe.rating %></p>
+    <% let imgName = recipe.name.toLowerCase().replace(/\s+/g, '-'); %>
+    <div style="position:absolute;right: 10px;top: 10px;"><img style="max-height:300px" src="/public/images/recipes/<%= imgName %>.jpg" alt="<%= recipe.name %>"class="img-fluid mt-3"></div>
+     <a href="/recipes" class="card-link">Back</a>
+  </div>
+</div>
+<%- include('../partials/footer') %>

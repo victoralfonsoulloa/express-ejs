@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<main class="container mt-4">
+  <h2>Edit Recipe</h2>
+  <form action="/recipes/edit/<%= recipe._id %>" method="POST">
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" name="name" value="<%= recipe.name %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Author</label>
+      <input type="text" name="author" value="<%= recipe.author %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Description</label>
+      <textarea name="description" class="form-control" required><%= recipe.description %></textarea>
+    </div>
+    <div class="mb-3">
+      <label>Ingredients</label>
+      <input type="text" name="ingredients" value="<%= recipe.ingredients %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Instructions</label>
+      <textarea name="instructions" class="form-control" required><%= recipe.instructions %></textarea>
+    </div>
+    <div class="mb-3">
+      <label>Rating (1–5)</label>
+      <input type="number" step="0.1" min="1" max="5" name="rating" value="<%= recipe.rating %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Category</label>
+      <select name="category" class="form-select" required>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat._id %>" <%= recipe.category._id.equals(cat._id) ? 'selected' : '' %>><%= cat.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>

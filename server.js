@@ -14,6 +14,20 @@ const port = 3000;
 //create instance of Express app
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+
+//create session data
+const session = require('express-session');
+app.use(session({ secret: 'secret', resave: false, saveUninitialized: true }));
+app.use(express.urlencoded({ extended: true }));
+
+//pass session data to routes
+app.use((req, res, next) => {
+  res.locals.message = req.session.message;
+  delete req.session.message;
+  next();
+});
+
 // ejs is templating engine
 app.set('view engine','ejs');
 

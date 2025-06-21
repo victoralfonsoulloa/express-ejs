@@ -28,6 +28,10 @@ app.use((req, res, next) => {
   next();
 });
 
+//allows us to delete records - add just below express
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
 // ejs is templating engine
 app.set('view engine','ejs');
 

@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<h2>Upload Image for <%= recipe.name %></h2>
+
+<p><strong>Author:</strong> <%= recipe.author %></p>
+<p><strong>Description:</strong> <%= recipe.description %></p>
+
+<form action="/recipes/upload-pic/<%= recipe._id %>" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="image">Choose a .jpg image to upload:</label>
+    <input type="file" name="image" accept=".jpg" required class="form-control-file">
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Upload Image</button>
+</form>
+
+<p class="text-muted mt-3">Uploading a new image will overwrite any existing one.</p>
+
+<%- include('../partials/footer') %>
